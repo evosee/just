@@ -7,7 +7,7 @@ public class ForkJoinCalculate extends RecursiveTask<Long> {
     private long[] numbers;
     private int start;
     private int end;
-    private final int THRESHOLD = 1000;
+    private static final int THRESHOLD = 1000;
 
     public ForkJoinCalculate(long[] numbers,int start,int end){
         this.numbers = numbers;
