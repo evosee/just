@@ -20,7 +20,13 @@ public class ThreadJoin {
         });
         a.start();
         b.start();
+        //Thread.dumpStack();
+Thread.getAllStackTraces().forEach((k,v)->{
+    System.out.println(k);
+    if(v.length>0){
+        System.out.println(v[0].toString());
+    }
 
-
+});
     }
 }
