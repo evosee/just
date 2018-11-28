@@ -30,6 +30,7 @@ public class MyClass {
          // Annotation[] c =  field.getAnnotations();
            // Annotation[] c=  field.getDeclaredAnnotations();
            // System.out.println(Arrays.toString(c));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
