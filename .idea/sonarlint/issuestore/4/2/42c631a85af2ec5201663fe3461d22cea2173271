@@ -1,0 +1,9 @@
+
+Fsquid:S11483"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öóş±ñ,
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ûæ©Áüÿÿÿÿ
+V
+squid:S106/"9Replace this use of System.out or System.err by a logger.(ëÏáÆ8öóş±ñ,
+dsquid:S21420"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8öóş±ñ,
+Fsquid:S11481"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8öóş±ñ,
+isquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(ŒŠş8ÕÖü±ñ,
+gsquid:S21472"DCombine this catch with the one at line 48, which has the same body.(åşŒóùÿÿÿÿ8öóş±ñ,

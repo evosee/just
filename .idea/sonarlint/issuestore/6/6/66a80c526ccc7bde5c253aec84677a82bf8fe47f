@@ -1,0 +1,11 @@
+
+Fsquid:S1148#"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ûÎåÔò,
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ş å²ùÿÿÿÿ8‰Ø¹Öò,
+Isquid:S1481"&Remove this unused "m" local variable.(şèÔ³üÿÿÿÿ8²†–Úò,
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(…Ïëö8ØØò,
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôÊæ‘8ÛõæÏò,
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÍÚÃ›úÿÿÿÿ8§Ó®Öò,
+Xsquid:S1854"5Remove this useless assignment to local variable "m".(şèÔ³üÿÿÿÿ8²†–Úò,
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(±â¢÷üÿÿÿÿ8©üÇÖò,

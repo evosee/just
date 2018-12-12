@@ -1,0 +1,10 @@
+
+]squid:S1075
+"ARefactor your code to get this URI from a customizable parameter.(³êÁôúÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ø¤æò
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(È¾ÁÖþÿÿÿÿ
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ë¡ª
+N
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ð¼ƒ.

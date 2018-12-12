@@ -1,0 +1,8 @@
+
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(ìÜ¨ô8Þ€’Á÷,
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÍçÉ¦ýÿÿÿÿ8øç¶À÷,
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÍçÉ¦ýÿÿÿÿ8øç¶À÷,
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÍçÉ¦ýÿÿÿÿ8øç¶À÷,
+Lsquid:S2786")Remove this redundant "static" qualifier.(»ì¿öøÿÿÿÿ8øç¶À÷,
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8Š ’Á÷,
