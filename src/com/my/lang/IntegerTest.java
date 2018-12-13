@@ -9,8 +9,8 @@ import java.lang.reflect.Field;
  */
 public class IntegerTest {
     public static void main(String[] args) {
-        Integer a = 13;
-        Integer b = 1511;
+        Integer a = 12;
+        Integer b = 1811;
         System.out.println(a);
         System.out.println(b);
         swap2(a, b);
