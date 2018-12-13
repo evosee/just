@@ -29,3 +29,11 @@ X
 (src/com/my/collection/MyCollections.java,d\a\dad7dbc06e0a2ca1b70314521a963767e19d52a9
 T
 $src/com/my/collection/MyEnumMap.java,f\8\f8b7585f7c59bebe3876faaded5fb5e56226e9ab
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+O
+src/com/my/thread/Consumer.java,6\d\6dde597dbb7727bb060d35ef759aed70fe35f89d
+Q
+!src/com/my/thread/ThreadMain.java,b\c\bc791f1a4137f5e5b36413d9d6d759467ee38f4a
+O
+src/com/my/thread/Producer.java,3\d\3d29a7a1418ecbd488445beacd5d799abcc2876a
