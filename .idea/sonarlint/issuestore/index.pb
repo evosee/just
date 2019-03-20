@@ -37,3 +37,17 @@ Q
 !src/com/my/thread/ThreadMain.java,b\c\bc791f1a4137f5e5b36413d9d6d759467ee38f4a
 O
 src/com/my/thread/Producer.java,3\d\3d29a7a1418ecbd488445beacd5d799abcc2876a
+P
+ src/com/my/lang/IntegerTest.java,f\1\f1d3a859317b5aa636da31246ca0349beac78a5e
+Y
+)src/com/my/thread/CyclicBarrrierTest.java,5\b\5ba07f85afc17cf97f1373db7e89e9278f026dfc
+O
+src/com/my/thread/DeadLock.java,1\2\12c2dae4a2014e43e477854576f876167cd80fb1
+P
+ src/com/my/lang/AutoPackage.java,e\4\e4862678e2af253dd7f1e76f3ff9b42734f42bdd
+H
+src/com/my/io/Words.java,c\d\cdf52df08a6553b7ded8e7827675e731bda2f836
+M
+src/com/my/io/WordsCheck.java,5\3\53848f4d4d24e0db312ea0f2924cf04db90b88d7
+O
+src/com/my/io/WordsProcess.java,0\2\02f6c467c7a087ee252ba9c17577b3076632ddeb
