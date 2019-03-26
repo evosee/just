@@ -26,5 +26,6 @@ public class GenericTest {
         genericTest.putObject(String.class,"string");
         System.out.println(genericTest.getObject(Integer.class));
         System.out.println(genericTest.getObject(String.class));
+
     }
 }
