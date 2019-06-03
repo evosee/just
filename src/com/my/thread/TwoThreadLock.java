@@ -35,13 +35,9 @@ public class TwoThreadLock {
                         System.out.println(s);
                         s = s + 2;
                         twoThreadLock.flag = true;
-                        condition.signal();
-                    } else {
-                        condition.await();
+
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
+                }  finally {
                     lock.unlock();
                 }
             }
@@ -70,13 +66,9 @@ public class TwoThreadLock {
                         System.out.println(s);
                         s = s + 2;
                         twoThreadLock.flag = false;
-                        condition.signal();
-                    } else {
-                        condition.await();
+
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
+                }  finally {
                     lock.unlock();
                 }
             }
