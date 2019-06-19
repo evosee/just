@@ -2,6 +2,7 @@ package com.my.algorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,21 +17,26 @@ public class Sort2 {
       //  Entity entity3 = new Entity(20, "a", 20, 4);
         Entity entity = new Entity(15, "a", 15, 4);
         Entity entity2 = new Entity(5, "a", 5, 4);
-        Entity entity4 = new Entity(4, "b", 5, 4);
+       /* Entity entity4 = new Entity(4, "b", 5, 4);
         Entity entity7 = new Entity(7, "d", 5, 2);
         Entity entity6 = new Entity(6, "c", 5, 3);
-        Entity entity8 = new Entity(8, "a", 5, 1);
+        Entity entity8 = new Entity(8, "a", 5, 1);*/
+        Entity entity20 = new Entity(20, "b", 20, 4);
 
         entity.setIndustrySuccession(true);
         entity2.setIndustrySuccession(true);
+        entity20.setIndustrySuccession(true);
         List<Entity> entities = new ArrayList<>();
       //  entities.add(entity3);
+     //   entities.add(entity20);
         entities.add(entity);
+
         entities.add(entity2);
-        entities.add(entity4);
+
+       /* entities.add(entity4);
         entities.add(entity6);
         entities.add(entity7);
-        entities.add(entity8);
+        entities.add(entity8);*/
 
 
         System.out.println(Arrays.toString(new Sort2().sort2(entities)));
@@ -46,15 +52,34 @@ public class Sort2 {
             for (int i = 0; i < x + times; i++) {
                 resutls.add(null);
             }
-
             resutls = setResults(entities, resutls);
-
-
+            //排完过后因为没有判断右边是否是同一行业所以事后补偿一下
+           resutls = compensate(resutls);
             return getResults(resutls);
-
 
         }
         return new int[36];
+    }
+
+    //往后排
+    private List compensate(List<Entity> resutls) {
+        LinkedList<Entity> linkedList = new LinkedList(resutls);
+        for(int i=1;i<linkedList.size()-1;i++){
+            Entity entity = linkedList.get(i);
+            Entity right = linkedList.get(i+1);
+            if(entity==null||right==null) continue;
+
+            if(entity.isIndustrySuccession()||right.isIndustrySuccession()){
+                if(!entity.getIndustry().equals(right.getIndustry())){
+                    continue;
+                }else {
+                    //移动2个位置
+                    linkedList.remove(i);
+                    linkedList.add(i+2,entity);
+                }
+            }
+        }
+        return linkedList;
     }
 
 
@@ -115,7 +140,6 @@ public class Sort2 {
             } else {
                 return r;
             }
-
         }
         return resutls;
     }
@@ -136,13 +160,11 @@ public class Sort2 {
             }
         }
 
-
         resutls.set(p, entity);
         return p;
     }
 
     private int interval(int p, List<Entity> results, Entity entity, int max) {
-
 
         for (int i = max; i > 0; i--) {
             int pp = p+i+1;
