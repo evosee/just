@@ -79,3 +79,5 @@ N
 src/com/my/algorithm/Sort.java,e\6\e6103d7513d810577eeb3a697f6f32e2c653b372
 O
 src/com/my/algorithm/Sort2.java,8\2\82b73dfe3435229a80fc397fb0e63931b726560a
+\
+,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
