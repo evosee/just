@@ -17,12 +17,19 @@ import java.util.stream.Stream;
  */
 public class JsonParse {
 
+    private Tocken tocken;
+    private ArrTocken arrTocken;
+    public JsonParse(String json,Tocken tocken,ArrTocken arrTocken){
+        this.tocken = tocken;
+        this.arrTocken = arrTocken;
+    }
+
     public <T> T parse(String json, Class<T> clazz) throws Exception {
         json = json.trim().replace("\n", "");
         if (!json.startsWith("{") || !json.endsWith("}")) {
             throw new RuntimeException("不是json字符串");
         }
-        Map<String, String> map = new Tocken(json).getMap();
+        Map<String, String> map = tocken.getMap(json);
         Map<String, Field> fieldMap = getFields(clazz);
         T o = clazz.newInstance();
         fieldMap.forEach((k, v) -> {
@@ -62,7 +69,7 @@ public class JsonParse {
 
     private <T> List<Object> getObjects(Field v, String value) {
         List<Object> lists = new ArrayList<>();
-        List<String> stringList = new ArrayTocken(value).getJson();
+        List<String> stringList = arrTocken.getJson(value);
         for (String x : stringList) {
             ParameterizedType parameterizedType = (ParameterizedType) v.getGenericType();
             try {
@@ -134,7 +141,8 @@ public class JsonParse {
                 "   \"type\" : \"003\"\n" +
                 "}\n";
 
-        MatchPremiseParam p = new JsonParse().parse(a, MatchPremiseParam.class);
+
+        MatchPremiseParam p = new JsonParse(a,new JsonTocken(),new ArrayTocken()).parse(a, MatchPremiseParam.class);
         System.out.println(p.getPersons().size());
 
     }

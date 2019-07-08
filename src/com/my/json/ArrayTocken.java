@@ -8,26 +8,27 @@ import java.util.List;
  * @version 1.0
  * @date 2019/7/8 11:36
  */
-public class ArrayTocken {
-    private final String json;
+public class ArrayTocken implements ArrTocken{
     private int beginIndex;
     private final List<String> mapList;
 
-    public ArrayTocken(String json) {
-        this.json = json.replace(" ", "");
+    public ArrayTocken() {
+
         this.mapList = new ArrayList<>();
         this.beginIndex = 1;
     }
 
-    public List<String> getJson() {
+    @Override
+    public List<String> getJson(String json) {
         if (!json.startsWith("[") || !json.endsWith("]"))
             throw new RuntimeException("not a json array");
-        getString(mapList);
+        json = json.replace(" ", "");
+        getString(mapList,json);
         return mapList;
 
     }
 
-    private void getString(List<String> stringList) {
+    private void getString(List<String> stringList,String json) {
         int lastIndex = json.indexOf("},{", beginIndex) + 1;
         String s;
 
@@ -39,7 +40,7 @@ public class ArrayTocken {
         } else {
             s = json.substring(beginIndex, lastIndex);
             beginIndex = lastIndex + 1;
-            getString(stringList);
+            getString(stringList,json);
         }
         stringList.add(s);
 

@@ -1,80 +1,12 @@
 package com.my.json;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author chensai
  * @version 1.0
- * @date 2019/7/5 17:21
+ * @date 2019/7/8 18:06
  */
-public class Tocken {
-    private String json;
-    private int beginIndex;
-
-    private int endIndex;
-
-    public Tocken(String json) {
-        this.json = json;
-        this.endIndex = json.length();
-        this.beginIndex = 1;
-    }
-
-    public String nextString() {
-
-        int index = json.indexOf(',', beginIndex);
-        if (index == -1) {
-
-            String f = json.substring(beginIndex, endIndex - 1);
-            beginIndex = endIndex;
-            return f;
-        }
-        String s = json.substring(beginIndex, index);
-        //说明是数组
-        if (s.indexOf('[') != -1) {
-            //继续找
-            int endIndex = json.indexOf(']', beginIndex);
-            s = json.substring(beginIndex, endIndex + 1);
-            beginIndex = endIndex + 2;
-        } else if (s.indexOf('{') != -1) {
-            int endIndex = json.indexOf('}', beginIndex);
-            s = json.substring(beginIndex, endIndex + 1);
-            beginIndex = endIndex + 2;
-        } else {
-            beginIndex = index + 1;
-        }
-        return s;
-    }
-
-    public Map<String, String> getMap() {
-        Map<String, String> map = new HashMap<>();
-
-
-        for (; ; ) {
-            if (beginIndex == endIndex) break;
-            String s = nextString();
-            String[] r = s.split(":");
-
-            if (r.length > 2) {
-                String k = s.substring(0, s.indexOf(':'));
-                k = getTrim(k);
-                String v = s.substring(s.indexOf(':') + 1);
-                v = getTrim(v);
-                map.put(k, v);
-            } else {
-                String k = r[0];
-                String v = r[1];
-                v = getTrim(v);
-                k = getTrim(k);
-                map.put(k, v);
-            }
-
-        }
-        return map;
-    }
-
-    private String getTrim(String v) {
-        return v.replace("\"", "").trim();
-    }
-
+public interface Tocken {
+    Map<String, String> getMap(String json);
 }
