@@ -26,56 +26,76 @@ public class JsonParse {
         Map<String, Field> fieldMap = getFields(clazz);
         T o = clazz.newInstance();
         fieldMap.forEach((k, v) -> {
-            v.setAccessible(true);
+
             String value = map.get(k);
             Object r = null;
             if (value != null) {
+                //处理json格式
                 if (value.startsWith("{")) {
                     try {
                         r = parse(value, v.getDeclaringClass());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    //处理数组格式
                 } else if (value.startsWith("[")) {
                     value = value.replace("\"", "");
                     value = value.replace(" ","");
-                    if (value.indexOf("{") == -1) {
-                        value = value.substring(1,value.lastIndexOf("]"));
+                    //处理是数组
+                    if (value.indexOf('{') == -1) {
+                        value = value.substring(1,value.lastIndexOf(']'));
                         r = Arrays.asList(value.split(","));
-                    } else {
-                        List<Object> lists = new ArrayList<>();
-                        List<String> stringList = new ArrayTocken(value).getJson();
-                        for (String x : stringList) {
-                            ParameterizedType parameterizedType = (ParameterizedType) v.getGenericType();
-                            try {
-                                Object ob = parse(x, (Class<T>) parameterizedType.getActualTypeArguments()[0]);
-                                lists.add(ob);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
+                    } else {//处理数组里面是object
+                        List<Object> lists = getObjects(v, value);
                         r = lists;
                     }
                 } else {
+                    //处理普通数据
                     r = value;
                 }
-                try {
-                    String typeName = v.getGenericType().getTypeName();
-                    Object o1 = r;
-                    if (typeName.equals("boolean")||typeName.equals("java.lang.Boolean")) {
-                        o1 = Boolean.getBoolean(r.toString());
-                    } else if (typeName.equals("java.lang.Integer")) {
-                        o1 = Integer.parseInt(r.toString());
-                    }else if (typeName.equals("java.lang.Long")) {
-                        o1 = Long.parseLong(r.toString());
-                    }
-                    v.set(o, o1);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+
+                setValue(o, v, r);
             }
         });
         return o;
+    }
+
+    private <T> List<Object> getObjects(Field v, String value) {
+        List<Object> lists = new ArrayList<>();
+        List<String> stringList = new ArrayTocken(value).getJson();
+        for (String x : stringList) {
+            ParameterizedType parameterizedType = (ParameterizedType) v.getGenericType();
+            try {
+                Object ob = parse(x, (Class<T>) parameterizedType.getActualTypeArguments()[0]);
+                lists.add(ob);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return lists;
+    }
+
+    private <T> void setValue(T o, Field v, Object r) {
+        try {
+            v.setAccessible(true);
+            String typeName = v.getGenericType().getTypeName();
+            Object o1 = r;
+            o1 = getObject(r, typeName, o1);
+            v.set(o, o1);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Object getObject(Object r, String typeName, Object o1) {
+        if (typeName.equals("boolean")||typeName.equals("java.lang.Boolean")) {
+            o1 = Boolean.getBoolean(r.toString());
+        } else if (typeName.equals("java.lang.Integer")) {
+            o1 = Integer.parseInt(r.toString());
+        }else if (typeName.equals("java.lang.Long")) {
+            o1 = Long.parseLong(r.toString());
+        }
+        return o1;
     }
 
 
