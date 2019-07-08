@@ -19,7 +19,7 @@ public class JsonParse {
 
     private Tocken tocken;
     private ArrTocken arrTocken;
-    public JsonParse(String json,Tocken tocken,ArrTocken arrTocken){
+    public JsonParse(Tocken tocken,ArrTocken arrTocken){
         this.tocken = tocken;
         this.arrTocken = arrTocken;
     }
@@ -142,7 +142,7 @@ public class JsonParse {
                 "}\n";
 
 
-        MatchPremiseParam p = new JsonParse(a,new JsonTocken(),new ArrayTocken()).parse(a, MatchPremiseParam.class);
+        MatchPremiseParam p = new JsonParse(new JsonTocken(),new ArrayTocken()).parse(a, MatchPremiseParam.class);
         System.out.println(p.getPersons().size());
 
     }
