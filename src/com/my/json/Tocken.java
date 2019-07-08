@@ -22,7 +22,7 @@ public class Tocken {
 
     public String nextString() {
 
-        int index = json.indexOf(",", beginIndex);
+        int index = json.indexOf(',', beginIndex);
         if (index == -1) {
 
             String f = json.substring(beginIndex, endIndex - 1);
@@ -31,13 +31,13 @@ public class Tocken {
         }
         String s = json.substring(beginIndex, index);
         //说明是数组
-        if (s.indexOf("[") != -1) {
+        if (s.indexOf('[') != -1) {
             //继续找
-            int endIndex = json.indexOf("]", beginIndex);
+            int endIndex = json.indexOf(']', beginIndex);
             s = json.substring(beginIndex, endIndex + 1);
             beginIndex = endIndex + 2;
-        } else if (s.indexOf("{") != -1) {
-            int endIndex = json.indexOf("}", beginIndex);
+        } else if (s.indexOf('{') != -1) {
+            int endIndex = json.indexOf('}', beginIndex);
             s = json.substring(beginIndex, endIndex + 1);
             beginIndex = endIndex + 2;
         } else {
@@ -56,9 +56,9 @@ public class Tocken {
             String[] r = s.split(":");
 
             if (r.length > 2) {
-                String k = s.substring(0, s.indexOf(":"));
+                String k = s.substring(0, s.indexOf(':'));
                 k = getTrim(k);
-                String v = s.substring(s.indexOf(":") + 1);
+                String v = s.substring(s.indexOf(':') + 1);
                 v = getTrim(v);
                 map.put(k, v);
             } else {

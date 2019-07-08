@@ -32,7 +32,7 @@ public class ArrayTocken {
         String s;
 
         if (lastIndex == 0) {
-            s = json.substring(beginIndex, json.lastIndexOf("]"));
+            s = json.substring(beginIndex, json.lastIndexOf(']'));
             beginIndex = -1;
             stringList.add(s);
             return;
