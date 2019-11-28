@@ -1,7 +1,7 @@
 package com.my.thread;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author chensai
@@ -11,7 +11,7 @@ import java.util.Map;
  * 模拟ThreadLocal的原理
  */
 public class ThreadLocalUtil<V> {
-    private Map<Thread, V> map = new HashMap<>();
+    private Map<Thread, V> map = new ConcurrentHashMap<>();
 
     public void set(V v) {
         map.put(Thread.currentThread(), v);
@@ -38,8 +38,7 @@ public class ThreadLocalUtil<V> {
         thread2.start();
         thread3.start();
         thread4.start();
-        Thread.sleep(3000);
-        System.out.println(integerThreadLocal.get());
+
 
 
     }
