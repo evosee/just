@@ -12,11 +12,27 @@ public class Entity {
     private int time;
     private int hz;
     private boolean industrySuccession;
+    private String screen;
 
+    public String getScreen() {
+        return screen;
+    }
+
+    public void setScreen(String screen) {
+        this.screen = screen;
+    }
 
     public Entity(){}
 
-    public Entity(Integer id, String industry,int time,int hz) {
+    public Entity(Integer id, String industry, int time, int hz, String screen) {
+        this.id = id;
+        this.industry = industry;
+        this.time = time;
+        this.hz = hz;
+        this.screen = screen;
+    }
+
+    public Entity(Integer id, String industry, int time, int hz) {
         this.id = id;
         this.industry = industry;
         this.time = time;
